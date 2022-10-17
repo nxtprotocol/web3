@@ -33,6 +33,7 @@ export const lightTheme = createTheme({
       styleOverrides: {
         root: {
           boxShadow: "0 4px 60px 12px #00000010",
+          borderRadius: 24,
         }
       }
     }
