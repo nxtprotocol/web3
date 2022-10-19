@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { DAOCard } from "../../components/DAOCard";
 import { Navbar } from "../../components/Navbar";
 import { mockDaos } from "../../constants/mock";
+import { useDAO } from "../../hooks/useDAO";
 import { DAO } from "../../types/DAO";
 import { Collections } from "./components/Collections";
 import { DAOInfo } from "./components/DAOInfo";
@@ -14,6 +15,7 @@ export const DaoPage: NextPage = () => {
   const router = useRouter();
   const [dao, setDao] = useState<DAO>();
   const { address } = router.query;
+  const {} = useDAO(1);
 
   useEffect(() => {
     if (address) {
@@ -43,7 +45,7 @@ export const DaoPage: NextPage = () => {
       >
         <DAOInfo dao={dao} />
         <Proposal />
-        <Collections dao={dao}/>
+        {/* <Collections dao={dao}/> */}
       </Container>
     </>
   );
