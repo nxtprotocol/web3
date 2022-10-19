@@ -6,11 +6,20 @@ import { DAO } from "../../../types/DAO";
 import { InfoCard } from "./InfoCard";
 
 interface DAOInfoProps {
-  dao: DAO;
+  timechainAddress: string;
+  daoCoreAddress: string;
+  governanceAddress: string;
+  boardingPassAddress: string;
+  addressVaultAddress: string;
 }
 
-export const DAOInfo: FC<DAOInfoProps> = ({ dao }) => {
-  
+export const DAOInfo: FC<DAOInfoProps> = ({
+  timechainAddress,
+  daoCoreAddress,
+  governanceAddress,
+  boardingPassAddress,
+  addressVaultAddress,
+}) => {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} md={4}>
@@ -26,13 +35,22 @@ export const DAOInfo: FC<DAOInfoProps> = ({ dao }) => {
         ></Paper>
       </Grid>
       <Grid item xs={12} md={8}>
-        <DAOCard dao={dao} disableLink disableHover/>
+        <DAOCard
+          addressVaultAddress={addressVaultAddress}
+          disableLink
+          disableHover
+        />
         <Box
           sx={{
             mt: 2,
           }}
         >
-          <InfoCard dao={dao} />
+          <InfoCard
+            timechainAddress={timechainAddress}
+            daoCoreAddress={daoCoreAddress}
+            governanceAddress={governanceAddress}
+            boardingPassAddress={boardingPassAddress}
+          />
         </Box>
       </Grid>
     </Grid>

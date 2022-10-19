@@ -4,8 +4,8 @@ import ABIERC721 from "../abis/ERC721";
 
 export const useERC721 = (address: string, tokenId: BigNumberish) => {
   return useContractRead({
-    address: address,
-    abi: ABIERC721,
+    addressOrName: address,
+    contractInterface: ABIERC721,
     functionName: "tokenURI",
     args: [tokenId],
   });

@@ -1,12 +1,25 @@
-import { Paper, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 import { FC } from "react";
-import { DAO } from "../../../types/DAO";
 
 interface InfoCardProps {
-  dao: DAO;
+  timechainAddress: string;
+  daoCoreAddress: string;
+  governanceAddress: string;
+  boardingPassAddress: string;
 }
 
-export const InfoCard: FC<InfoCardProps> = ({ dao }) => {
+export const InfoCard: FC<InfoCardProps> = ({
+  timechainAddress,
+  daoCoreAddress,
+  governanceAddress,
+  boardingPassAddress,
+}) => {
+  console.log(
+    timechainAddress,
+    daoCoreAddress,
+    governanceAddress,
+    boardingPassAddress
+  );
   return (
     <Paper
       sx={{
@@ -15,14 +28,22 @@ export const InfoCard: FC<InfoCardProps> = ({ dao }) => {
     >
       <Typography variant="body1">More about this DAO</Typography>
       <Typography variant="body2" mt={3} color="#00000090">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi veniam
-        rem quod magnam dolor veritatis aspernatur voluptatibus debitis esse
-        repellendus repellat commodi reprehenderit, beatae placeat nulla, ipsum,
-        quae voluptates eius.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi veniam
-        rem quod magnam dolor veritatis aspernatur voluptatibus debitis esse
-        repellendus repellat commodi reprehenderit, beatae placeat nulla, ipsum,
-        quae voluptates eius.
+        <Box my={3}>
+          <Typography variant="h6">DAO Core</Typography>
+          <Typography variant="body2">{daoCoreAddress}</Typography>
+        </Box>
+        <Box my={3}>
+          <Typography variant="h6">Timechain</Typography>
+          <Typography variant="body2">{timechainAddress}</Typography>
+        </Box>
+        <Box my={3}>
+          <Typography variant="h6">Governance</Typography>
+          <Typography variant="body2">{governanceAddress}</Typography>
+        </Box>
+        <Box my={3}>
+          <Typography variant="h6">Boarding Pass</Typography>
+          <Typography variant="body2">{boardingPassAddress}</Typography>
+        </Box>
       </Typography>
     </Paper>
   );

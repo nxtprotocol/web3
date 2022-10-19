@@ -4,16 +4,16 @@ import { DAO } from "../types/DAO";
 import { shortenEthAddress } from "../utils/typography";
 
 interface DAOCardProps {
-  dao: DAO;
+  addressVaultAddress: string;
   showImage?: boolean;
   disableLink?: boolean;
   disableHover?: boolean;
 }
 
-export const DAOCard: FC<DAOCardProps> = ({ dao, showImage, disableLink, disableHover }) => {
+export const DAOCard: FC<DAOCardProps> = ({ addressVaultAddress, showImage, disableLink, disableHover }) => {
   return (
     <Link
-      href={disableLink ? "#" : `/dao/${dao.addresses.core}`}
+      href={disableLink ? "#" : `/dao/1`} // FIXME:
       sx={{
         textDecoration: "none",
       }}
@@ -46,9 +46,9 @@ export const DAOCard: FC<DAOCardProps> = ({ dao, showImage, disableLink, disable
           ) : null}
         </Box>
         <Box paddingY={1}>
-          <Typography variant="h6">{dao.name.toUpperCase()}</Typography>
+          <Typography variant="h6">Name</Typography>
           <Typography variant="body2" color="#00000060" fontSize={12}>
-            {shortenEthAddress(dao.addresses.core)}
+            {shortenEthAddress(addressVaultAddress)}
           </Typography>
           <Grid container mt={1}>
             <Grid item xs={4}>
@@ -62,17 +62,17 @@ export const DAOCard: FC<DAOCardProps> = ({ dao, showImage, disableLink, disable
             </Grid>
             <Grid item xs={4}>
               <Typography fontSize={18} fontWeight={600}>
-                {dao.assets.toString()}
+                Mock
               </Typography>
             </Grid>
             <Grid item xs={4}>
               <Typography fontSize={18} fontWeight={600}>
-                {dao.members.toString()}
+                Mock
               </Typography>
             </Grid>
             <Grid item xs={4}>
               <Typography fontSize={18} fontWeight={600}>
-                {dao.valuation.toString()}
+                Mock
               </Typography>
             </Grid>
           </Grid>
