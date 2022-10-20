@@ -1,4 +1,4 @@
-const ABIERC721 = [
+const abi = [
   {
     anonymous: false,
     inputs: [
@@ -344,4 +344,4 @@ const ABIERC721 = [
     type: "function",
   },
 ];
-export default ABIERC721;
+export default abi;

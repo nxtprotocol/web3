@@ -4,8 +4,15 @@ import { Navbar } from "../../components/Navbar";
 import SearchIcon from "@mui/icons-material/Search";
 import { Popular } from "./components/Popular";
 import { CreateCard } from "./components/CreateCard";
+import { useRouter } from "next/router";
+import { ChangeEvent, useState } from "react";
 
 export const Home: NextPage = () => {
+  const [id, setId] = useState<string>("");
+  const router = useRouter();
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setId(e.target.value)
+  }
   return (
     <>
       <Navbar />
@@ -23,7 +30,7 @@ export const Home: NextPage = () => {
             Find any DAO from their address.
           </Typography>
           <InputBase
-            placeholder="DAO’s address here"
+            placeholder="DAO ID"
             sx={{
               marginTop: 2,
               marginBottom: 4,
@@ -33,11 +40,14 @@ export const Home: NextPage = () => {
               width: "100%",
               fontSize: 26,
             }}
+            value={id}
+            onChange={handleInputChange}
           />
           <Button
             variant="contained"
             size="large"
             sx={{ height: "60px", gap: 1 }}
+            onClick={() => router.push(`/dao/${id}`)}
           >
             <SearchIcon />
             Search

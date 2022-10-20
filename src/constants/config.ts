@@ -1,15 +1,15 @@
-const currentVersion: string = "0.0.2";
+const currentVersion: string = "v0.0.1";
 
-type Addresses = {
-  daoFactory: string;
-}
-
-const addresses: {[key: string]: Addresses} = {
-  "0.0.2": {
-    daoFactory: "0xA74144cC18f86bbDEB0cA9adfBE859d1ed87D35e"
-  },
-}
-
-export function useConfig() {
-  return addresses[currentVersion];
-}
+export const loadConfig = async (): Promise<Config> => {
+  return {
+    address: await import(`../contracts/${currentVersion}/addresses`),
+    abi: {
+      AddressVault: await import(
+        `../contracts/${currentVersion}/abi/AddressVault`
+      ),
+      DAOCore: await import(`../contracts/${currentVersion}/abi/DAOCore`),
+      DAOFactory: await import(`../contracts/${currentVersion}/abi/DAOFactory`),
+      ERC721: await import(`../contracts/${currentVersion}/abi/ERC721`),
+    },
+  };
+};

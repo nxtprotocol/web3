@@ -2,7 +2,7 @@ import { Grid, Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import { FC } from "react";
 import { DAOCard } from "../../../components/DAOCard";
-import { DAO } from "../../../types/DAO";
+import { DAO } from "../../../types/dao";
 import { InfoCard } from "./InfoCard";
 
 interface DAOInfoProps {

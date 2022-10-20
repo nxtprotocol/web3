@@ -1,4 +1,4 @@
-export const ABIAddressVault = [
+const abi = [
   {
     inputs: [],
     stateMutability: "nonpayable",
@@ -464,3 +464,4 @@ export const ABIAddressVault = [
     type: "function",
   },
 ];
+export default abi;

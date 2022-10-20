@@ -8,7 +8,7 @@ import { Navbar } from "../../components/Navbar";
 import { mockDaos } from "../../constants/mock";
 import { useAddressVault } from "../../hooks/useAddressVault";
 import { useDAOFactory } from "../../hooks/useDAOFactory";
-import { DAO } from "../../types/DAO";
+import { DAO } from "../../types/dao";
 import { Collections } from "./components/Collections";
 import { DAOInfo } from "./components/DAOInfo";
 import { Proposal } from "./components/Proposal";
@@ -25,6 +25,7 @@ export const DaoPage: NextPage = () => {
   const [bp, setBp] = useState<string>("");
 
   const init = async (daoId: string) => {
+    if (!factory) return;
     const converted = BigNumber.from(daoId);
     const v = await factory.addressVaultOf(converted);
     let realVaultTmp = addressVault.attach(v);
@@ -61,7 +62,7 @@ export const DaoPage: NextPage = () => {
           governanceAddress={gov}
           boardingPassAddress={bp}
         />
-        <Proposal />
+        <Proposal daoCore={core} />
         {/* <Collections dao={dao}/> */}
       </Container>
     </>

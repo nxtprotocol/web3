@@ -1,5 +1,5 @@
 import { BigNumber } from "ethers";
-import { DAO } from "../types/DAO";
+import { DAO } from "../types/dao";
 
 export const mockDaos: DAO[] = [
   {

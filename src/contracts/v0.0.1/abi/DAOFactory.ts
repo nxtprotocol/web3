@@ -1,4 +1,4 @@
-export const ABIDAOFactory = [
+const abi = [
   {
     inputs: [
       {
@@ -151,3 +151,4 @@ export const ABIDAOFactory = [
     type: "function",
   },
 ];
+export default abi;

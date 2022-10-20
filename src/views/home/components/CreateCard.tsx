@@ -1,9 +1,11 @@
 import { Box, Button, Container, Paper, Typography } from "@mui/material";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { FC } from "react";
 import collectables from "../../../../public/nft-collectables.jpg";
 
 export const CreateCard: FC = () => {
+  const router = useRouter();
   return (
     <Container
       maxWidth="lg"
@@ -32,7 +34,7 @@ export const CreateCard: FC = () => {
             Be a DAO leader and start your NFTs investment journey with
             SharedNFT.
           </Typography>
-          <Button variant="contained">Build now</Button>
+          <Button variant="contained" onClick={() => router.push('/create')}>Build now</Button>
         </Box>
         <Box
           mt={5}

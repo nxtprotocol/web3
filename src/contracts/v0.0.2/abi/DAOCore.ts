@@ -1,4 +1,4 @@
-export const ABIDAOCore = [
+const abi = [
   {
     inputs: [
       {
@@ -173,3 +173,4 @@ export const ABIDAOCore = [
     type: "function",
   },
 ];
+export default abi;

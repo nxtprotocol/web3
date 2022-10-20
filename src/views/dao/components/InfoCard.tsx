@@ -14,12 +14,6 @@ export const InfoCard: FC<InfoCardProps> = ({
   governanceAddress,
   boardingPassAddress,
 }) => {
-  console.log(
-    timechainAddress,
-    daoCoreAddress,
-    governanceAddress,
-    boardingPassAddress
-  );
   return (
     <Paper
       sx={{

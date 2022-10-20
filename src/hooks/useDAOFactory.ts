@@ -1,11 +1,12 @@
+import { useConfig } from './../contexts/Config';
 import { useProvider } from "wagmi";
-import { ABIDAOFactory } from "../abis/DAOFactory";
-import { useConfig } from "../constants/config";
 import { ethers } from 'ethers';
 
 export const useDAOFactory = () => {
 
   const provider = useProvider()
-  const { daoFactory } = useConfig()
-  return new ethers.Contract(daoFactory, ABIDAOFactory).connect(provider)
+  const conf = useConfig()
+  console.log(conf)
+  if (!conf) return undefined;
+  return new ethers.Contract(conf.address.default.DAOFactory, conf.abi.DAOFactory.default).connect(provider)
 };

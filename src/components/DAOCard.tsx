@@ -1,10 +1,10 @@
 import { Box, Grid, Link, Paper, Typography } from "@mui/material";
 import { FC } from "react";
-import { DAO } from "../types/DAO";
+import { DAO } from "../types/dao";
 import { shortenEthAddress } from "../utils/typography";
 
 interface DAOCardProps {
-  addressVaultAddress: string;
+  addressVaultAddress?: string;
   showImage?: boolean;
   disableLink?: boolean;
   disableHover?: boolean;
@@ -48,7 +48,7 @@ export const DAOCard: FC<DAOCardProps> = ({ addressVaultAddress, showImage, disa
         <Box paddingY={1}>
           <Typography variant="h6">Name</Typography>
           <Typography variant="body2" color="#00000060" fontSize={12}>
-            {shortenEthAddress(addressVaultAddress)}
+            {shortenEthAddress(addressVaultAddress || "")}
           </Typography>
           <Grid container mt={1}>
             <Grid item xs={4}>

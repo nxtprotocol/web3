@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import { BigNumber } from "ethers";
 import { FC } from "react";
 import { NFTCard } from "../../../components/NFTCard";
-import { DAO } from "../../../types/DAO";
+import { DAO } from "../../../types/dao";
 
 interface CollectionsProps {
   dao: DAO;
