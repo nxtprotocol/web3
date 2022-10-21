@@ -5,10 +5,10 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { DAOCard } from "../../components/DAOCard";
 import { Navbar } from "../../components/Navbar";
-import { mockDaos } from "../../constants/mock";
+
 import { useAddressVault } from "../../hooks/useAddressVault";
 import { useDAOFactory } from "../../hooks/useDAOFactory";
-import { DAO } from "../../types/dao";
+
 import { Collections } from "./components/Collections";
 import { DAOInfo } from "./components/DAOInfo";
 import { Proposal } from "./components/Proposal";
@@ -18,14 +18,14 @@ export const DaoPage: NextPage = () => {
   const addressVault = useAddressVault();
   const factory = useDAOFactory();
 
-  const [vault, setVault] = useState<Contract>(addressVault);
+  const [vault, setVault] = useState<Contract | undefined>();
   const [tc, setTc] = useState<string>("");
   const [core, setCore] = useState<string>("");
   const [gov, setGov] = useState<string>("");
   const [bp, setBp] = useState<string>("");
 
   const init = async (daoId: string) => {
-    if (!factory) return;
+    if (!factory || !addressVault) return;
     const converted = BigNumber.from(daoId);
     const v = await factory.addressVaultOf(converted);
     let realVaultTmp = addressVault.attach(v);
@@ -42,7 +42,7 @@ export const DaoPage: NextPage = () => {
     }
   }, [router.query]);
 
-  if (!router.query.daoId || !tc || !core || !gov || !bp) {
+  if (!router.query.daoId || !tc || !core || !gov || !bp || !vault) {
     return null;
   }
 

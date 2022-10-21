@@ -3,10 +3,9 @@ import { Box } from "@mui/system";
 import { BigNumber } from "ethers";
 import { FC } from "react";
 import { NFTCard } from "../../../components/NFTCard";
-import { DAO } from "../../../types/dao";
 
 interface CollectionsProps {
-  dao: DAO;
+
 }
 
 const nftsMock = [
@@ -20,7 +19,7 @@ const nftsMock = [
   },
 ];
 
-export const Collections: FC<CollectionsProps> = ({ dao }) => {
+export const Collections: FC<CollectionsProps> = ({  }) => {
   return (
     <Box
       sx={{

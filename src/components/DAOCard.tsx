@@ -1,6 +1,5 @@
 import { Box, Grid, Link, Paper, Typography } from "@mui/material";
 import { FC } from "react";
-import { DAO } from "../types/dao";
 import { shortenEthAddress } from "../utils/typography";
 
 interface DAOCardProps {
