@@ -27,7 +27,7 @@ const bitkubChainTestnet: Chain = {
   name: "Bitkub Chain Testnet",
   network: "bitkubchain-testnet",
   rpcUrls: {
-    default: "https://testnet.bkcscan.com",
+    default: "https://rpc-testnet.bitkubchain.io",
   },
   nativeCurrency: {
     decimals: 18,
