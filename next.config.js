@@ -2,6 +2,7 @@
 const nextConfig = {
   images: {
     domains: ['ipfs.bitkubnext.io'],
+    unoptimized: true,
   },
   reactStrictMode: true,
   swcMinify: true,

@@ -3,7 +3,7 @@ import { BigNumber } from "ethers";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { DAOCard } from "../../../components/DAOCard";
-import { mockDaos } from "../../../constants/mock";
+
 
 export const Popular: FC = () => {
   const router = useRouter();
@@ -26,11 +26,7 @@ export const Popular: FC = () => {
       >
         <Container maxWidth="lg">
           <Grid container spacing={3}>
-            {mockDaos.map((dao, index) => (
-              <Grid key={`popular-dao-${index}`} item xs={12} md={6}>
-                {/* <DAOCard showImage/> */}
-              </Grid>
-            ))}
+            
           </Grid>
           <Box
             sx={{

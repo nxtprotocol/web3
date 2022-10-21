@@ -1,11 +1,12 @@
 import { BigNumberish } from "ethers";
 import { useContractRead } from "wagmi";
-import ABIERC721 from "../contracts/ERC721";
+import { useConfig } from "../contexts/Config";
 
 export const useERC721 = (address: string, tokenId: BigNumberish) => {
+  const conf = useConfig();
   return useContractRead({
     addressOrName: address,
-    contractInterface: ABIERC721,
+    contractInterface: conf?.abi.ERC721.default,
     functionName: "tokenURI",
     args: [tokenId],
   });
